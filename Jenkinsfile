@@ -1,29 +1,35 @@
-node {
-    
+pipeline {
+    agent any
 
     stages {
+        stage('Preparation') {
+            steps {
+                echo 'Starting the pipeline...'
+            }
+        }
+
         stage('Build') {
             steps {
-                // Get some code from a GitHub repository
-                echo 'this is build stage'
+                echo 'This is the Build stage'
             }
-           
-            }
-        stage('Compile') {
-            steps {
-                // Get some code from a GitHub repository
-                echo 'this is compile stage'
-            }
+        }
 
-           
-            }
-         stage('document') {
+        stage('Test') {
             steps {
-                // Get some code from a GitHub repository
-                echo 'this is document stage'
+                echo 'This is the Test stage'
             }
+        }
 
+        stage('Deploy') {
+            steps {
+                echo 'This is the Deploy stage'
             }
         }
     }
 
+    post {
+        always {
+            echo 'Pipeline execution completed'
+        }
+    }
+}
