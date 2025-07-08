@@ -1,4 +1,4 @@
 FROM openjdk:17-jdk-slim
-VOLUME /tmp
+EXPOSE 8080
 COPY target/spring-boot-backend.war spring-boot-backend.war
-ENTRYPOINT ["java","-war","/spring-boot-backend.jar"]
+ENTRYPOINT ["java","-war","/spring-boot-backend.war"]
